@@ -1,0 +1,27 @@
+{
+    "name": "masterton/ueditor-upload-php-sdk",
+    "description": "Ueditor upload file SDK for PHP",
+    "keywords": [ "ueditor", "upload", "sdk" ],
+    "type": "library",
+    "license": "MIT",
+    "homepage": "http://ueditor.baidu.com/website/",
+    "authors": [
+        {
+            "name": "Masterton",
+            "homepage": "http://slim.zhengss.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Ueditor\\": "src/",
+            "Ueditor\\Test\\": "tests/"
+        }
+    }
+}

@@ -1,12 +1,14 @@
 <?php
 
+namespace Ueditor;
+
 /**
- * Created by JetBrains PhpStorm.
- * User: taoqili
- * Date: 12-7-18
- * Time: 上午11: 32
+ * @author Masterton
+ * @version 1.0.0
+ * @time 2017-8-14 15:12:57
  * UEditor编辑器通用上传类
  */
+
 class Uploader
 {
     private $fileField; //文件域名
