@@ -10,6 +10,11 @@ namespace Ueditor;
 
 class ActionCrawler
 {
+    /**
+     * 配置信息
+     * @var array
+     *
+     */
     private $config;
 
     public function __construct($config)
@@ -17,6 +22,10 @@ class ActionCrawler
         $this->config = $config;
     }
 
+    /**
+     * 抓取远程图片
+     *
+     */
     public function crawlerImage()
     {
         /* 上传配置 */

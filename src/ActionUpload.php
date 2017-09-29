@@ -4,13 +4,25 @@
  * @author Masterton
  * @version 1.0.0
  * @time 2017-8-14 14:42:58
+ * UEditor编辑器通用查看文件分类上传中转类
  */
 
 namespace Ueditor;
 
-class ActioUpload
+class ActionUpload
 {
+    /**
+     * 配置信息
+     * @var array
+     *
+     */
     private $config;
+
+    /**
+     * 保存图片方式
+     * @var string
+     *
+     */
     private $base64;
 
     public function __construct($config)
@@ -23,8 +35,9 @@ class ActioUpload
      * 上传图片
      *
      */
-    public function uploadImage()
+    public function saveImage()
     {
+        
         $imageConfig = [
             "pathFormat" => $this->config['imagePathFormat'],
             "maxSize" => $this->config['imageMaxSize'],
@@ -33,7 +46,7 @@ class ActioUpload
         $fieldName = $this->config['imageFieldName'];
 
         /* 生成上传实例对象并完成上传 */
-        $up = new Uploader($fieldName, $imageConfig, $this->$base64);
+        $up = new Uploader($fieldName, $imageConfig, $this->base64);
 
         /**
          * 得到上传文件所对应的各个参数,数组结构
@@ -48,6 +61,7 @@ class ActioUpload
          */
 
         /* 返回数据 */
+        // 获取当前上传成功文件的各项信息
         return $up->getFileInfo();
     }
 
@@ -55,18 +69,20 @@ class ActioUpload
      * 上传涂鸦
      *
      */
-    public function uploadScrawl()
+    public function saveScrawl()
     {
         $imageConfig = [
             "pathFormat" => $this->config['scrawlPathFormat'],
             "maxSize" => $this->config['scrawlMaxSize'],
-            "allowFiles" => $this->config['scrawlAllowFiles'],
+            // "allowFiles" => $this->config['scrawlAllowFiles'],
             "oriName" => "scrawl.png"
         ];
         $fieldName = $this->config['scrawlFieldName'];
 
         /* 生成上传实例对象并完成上传 */
         $up = new Uploader($fieldName, $imageConfig, 'base64');
+
+        // 获取当前上传成功文件的各项信息
         return $up->getFileInfo();
     }
 
@@ -74,7 +90,7 @@ class ActioUpload
      * 上传视频
      *
      */
-    public function uploadVideo()
+    public function saveVideo()
     {
         $imageConfig = [
             "pathFormat" => $this->config['videoPathFormat'],
@@ -85,6 +101,8 @@ class ActioUpload
 
         /* 生成上传实例对象并完成上传 */
         $up = new Uploader($fieldName, $imageConfig, $this->base64);
+
+        // 获取当前上传成功文件的各项信息
         return $up->getFileInfo();
     }
 
@@ -92,7 +110,7 @@ class ActioUpload
      * 上传文件
      *
      */
-    public function uploadVideo()
+    public function saveFile()
     {
         $imageConfig = [
             "pathFormat" => $this->config['filePathFormat'],
@@ -103,6 +121,8 @@ class ActioUpload
 
         /* 生成上传实例对象并完成上传 */
         $up = new Uploader($fieldName, $imageConfig, $this->base64);
+
+        // 获取当前上传成功文件的各项信息
         return $up->getFileInfo();
     }
 }

@@ -1,13 +1,13 @@
 <?php
 
-namespace Ueditor;
-
 /**
  * @author Masterton
  * @version 1.0.0
  * @time 2017-8-14 15:12:57
  * UEditor编辑器通用上传类
  */
+
+namespace Ueditor;
 
 class Uploader
 {
@@ -48,7 +48,7 @@ class Uploader
      * 构造函数
      * @param string $fileField 表单名称
      * @param array $config 配置项
-	 * @param string $type	处理文件上传的方式
+     * @param string $type  处理文件上传的方式
      */
     public function __construct($fileField, $config, $type = "upload")
     {
@@ -287,7 +287,7 @@ class Uploader
         $format = str_replace("{filename}", $oriName, $format);
 
         //替换随机字符串
-        $randNum = rand(1, 10000000000) . rand(1, 10000000000);
+        $randNum = rand(1, 1000) . rand(1, 1000);
         if (preg_match("/\{rand\:([\d]*)\}/i", $format, $matches)) {
             $format = preg_replace("/\{rand\:[\d]*\}/i", substr($randNum, 0, $matches[1]), $format);
         }
@@ -357,5 +357,4 @@ class Uploader
             "size" => $this->fileSize
         );
     }
-
 }

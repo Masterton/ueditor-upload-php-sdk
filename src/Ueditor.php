@@ -4,6 +4,7 @@
  * @author Masterton
  * @version 1.0.0
  * @time 2017-8-14 14:42:49
+ * UEditor编辑器文件上传入口类
  */
 
 namespace Ueditor;
@@ -13,13 +14,23 @@ class Ueditor
     /**
      * Ueditor Configure
      * @var array
+     *
      */
     private $config;
 
 
-    public function __construct(array $config)
+    public function __construct()
     {
-        $this->config = Config($config);
+        $this->config = ConfigController::getConfig();
+    }
+
+    /**
+     * 获取配置信息
+     *
+     */
+    public function getConfig()
+    {
+        return $this->config;
     }
 
     /**
@@ -28,7 +39,7 @@ class Ueditor
      */
     public function uploadImage()
     {
-        $uploadImage = new ActionUpload();
+        return new ActionUpload($this->config);
     }
 
     /**
@@ -37,7 +48,7 @@ class Ueditor
      */
     public function uploadScrawl()
     {
-        $uploadScrawl = new ActionUpload();
+        return ActionUpload($this->config);
     }
 
     /**
@@ -46,7 +57,7 @@ class Ueditor
      */
     public function uploadVideo()
     {
-        $uploadVideo = new ActionUpload();
+        return new ActionUpload($this->config);
     }
 
     /**
@@ -55,7 +66,7 @@ class Ueditor
      */
     public function uploadFile()
     {
-        $uploadFile = new ActionUpload();
+        return new ActionUpload($this->config);
     }
 
     /**
@@ -64,7 +75,7 @@ class Ueditor
      */
     public function listImage()
     {
-        $listImage = new ActionList();
+        return new ActionList($this->config);
     }
 
     /**
@@ -73,7 +84,7 @@ class Ueditor
      */
     public function listFile()
     {
-        $listFile = new ActionList();
+        return new ActionList($this->config);
     }
 
     /**
@@ -82,6 +93,6 @@ class Ueditor
      */
     public function catchImage()
     {
-        $catchImage = new ActionCrawler();
+        return new ActionCrawler($this->config);
     }
 }
