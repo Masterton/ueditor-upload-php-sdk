@@ -21,7 +21,7 @@ class Ueditor
 
     public function __construct()
     {
-        $this->config = ConfigController::getConfig();
+        $this->config = Config::getConfig();
     }
 
     /**

@@ -9,7 +9,7 @@
 
 namespace Ueditor;
 
-class ConfigController
+class Config
 {
     public static function getConfig()
     {
